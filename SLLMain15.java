@@ -1,22 +1,32 @@
-import java.util.Scanner;
 public class SLLMain15 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
         SingleLinkedList15 sll = new SingleLinkedList15();
 
-        System.out.print("Masukkan jumlah mahasiswa: ");
-        int jumlah = sc.nextInt(); sc.nextLine();
+        Mahasiswa15 mhs1 = new Mahasiswa15("24212200", "Alvaro", "1A", 4.0);
+        Mahasiswa15 mhs2 = new Mahasiswa15("23212201", "Bimon", "2B", 3.8);
+        Mahasiswa15 mhs3 = new Mahasiswa15("22212202", "Cintia", "3C", 3.5);
+        Mahasiswa15 mhs4 = new Mahasiswa15("21212203", "Dirga", "4D", 3.6);
 
-        for (int i = 0; i < jumlah; i++) {
-            System.out.println("Mahasiswa ke-" + (i+1));
-            System.out.print("NIM   : "); String nim = sc.nextLine();
-            System.out.print("Nama  : "); String nama = sc.nextLine();
-            System.out.print("Kelas : "); String kelas = sc.nextLine();
-            System.out.print("IPK   : "); double ipk = sc.nextDouble(); sc.nextLine();
+        sll.print();
+        sll.addFirst(mhs4);
+        sll.print();
+        sll.addLast(mhs1);
+        sll.print();
+        sll.insertAfter("Dirga", mhs3);
+        sll.insertArt(2, mhs2);
+        sll.print();
 
-            Mahasiswa15 mhs = new Mahasiswa15(nim, nama, kelas, ipk);
-            sll.addLast(mhs);
-            sll.print();
-        }
+        System.out.println("Data index 1 : ");
+        sll.getData(1);
+
+        System.out.println("Data mahasiswa an Bimon berada pada index : " + sll.indexOf("bimon"));
+        System.out.println();
+
+        sll.removeFirst();
+        sll.removeLast();
+        sll.print();
+
+        sll.removeAt(0);
+        sll.print();
     }
 }
